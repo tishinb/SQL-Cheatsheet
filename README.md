@@ -1,10 +1,11 @@
-## Примеры
+## Выделение
 ```
 SELECT * FROM products WHERE price < 3000;
 ```
 ```
 SELECT * FROM orders WHERE status in ('cancelled', 'new');
 ```
+## Операторы
 ```
 SELECT * FROM orders WHERE sum > 3000 OR products_count >=3:
 ```

@@ -31,3 +31,10 @@ SELECT name, price FROM products ORDER BY price DESC;
 ```
 SELECT * FROM products WHERE price >=5000 ORDER BY price DESC;
 ```
+## Сортировка
+
+## Добавление
+
+## Обновление
+
+## Удаление

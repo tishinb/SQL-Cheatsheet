@@ -14,8 +14,8 @@
 | UPDATE                             | ✔️ |
 | DELETE                             | ✔️ |
 |TRUNCATE                            | ✔️ |
-|CREATE TABLE                        | 🚧 |
-|DROP TABLE                          | 🚧 |
+|CREATE TABLE                        | ✔️ |
+|DROP TABLE                          | ✔️ |
 
 ## Выделение
 
@@ -175,8 +175,6 @@ DELETE FROM users;
 ```
 TRUNCATE table users;
 ```
-
-🚧 [UNDER CONSTRUCTION!] 🚧
 
 ## Создание таблицы
 

@@ -204,3 +204,9 @@ CREATE TABLE orders (
 ```
 DROP TABLE table_name;
 ```
+
+<h1 align="center">🚧 [UNDER CONSTRUCTION!] 🚧</h1>
+
+## Типы данных
+
+

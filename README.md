@@ -1,3 +1,22 @@
+# Прогресс
+
+| Ключевые слова | Статус|
+|------------------------------------| :---: |
+| SELECT FROM                        | ✔️ |
+| WHERE                              | ✔️ |
+| OR и AND                           | ✔️ |
+| ORDER BY                           | ✔️ |
+| LIMIT                              | ✔️ |
+| OFFSET                             | ✔️ |
+| INSERT INTO                        | ✔️ |
+| VALUE/VALUES                       | ✔️ |
+| SET                                | ✔️ |
+| UPDATE                             | ✔️ |
+| DELETE                             | ✔️ |
+|TRUNCATE                            | ✔️ |
+|CREATE TABLE                        | 🚧 |
+|DROP TABLE                          | 🚧 |
+
 ## Выделение
 
 ```
@@ -8,7 +27,7 @@ SELECT * FROM products WHERE price < 3000;
 SELECT * FROM orders WHERE status in ('cancelled', 'new');
 ```
 
-## Операторы
+## Операторы OR и AND
 
 ```
 SELECT * FROM orders WHERE sum > 3000 OR products_count >=3:
@@ -155,4 +174,35 @@ DELETE FROM users;
 
 ```
 TRUNCATE table users;
+```
+
+🚧 [UNDER CONSTRUCTION!] 🚧
+
+## Создание таблицы
+
+```
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+```
+
+**Например:**
+
+```
+CREATE TABLE orders (
+    id INT UNSIGNED NOT NULL PRIMARY KEY,
+    user_id INTEGER NULL,
+    products_count INTEGER NULL,
+    sum INTEGER NULL,
+    status VARCHAR(20) NULL
+);
+```
+
+## Удаление таблицы
+
+```
+DROP TABLE table_name;
 ```

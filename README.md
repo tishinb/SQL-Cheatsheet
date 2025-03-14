@@ -188,8 +188,6 @@ CREATE TABLE orders (
 DROP TABLE table_name;
 ```
 
-<h1 align="center">🚧 [!UNDER CONSTRUCTION!] 🚧</h1>
-
 ## Типы данных
 
 **Символьные типы**
@@ -337,4 +335,4 @@ DROP TABLE table_name;
 
 # Примеры заданий
 
-
+<h1 align="center">🚧 [!UNDER CONSTRUCTION!] 🚧</h1>

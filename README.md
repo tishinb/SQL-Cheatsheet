@@ -129,6 +129,8 @@ UPDATE products SET name='iMac' WHERE name = 'IMAC'
 А чтобы сравнить значение в поле с NULL, нужно использовать не символы равенства (=) и неравенства (<>), 
 а специальное выражение IS NULL или IS NOT NULL.**
 
+**NULL нельзя сравнивать ни с чем!**
+
 ```
 UPDATE orders SET status='new' WHERE status IS NULL
 ```
@@ -354,6 +356,24 @@ DROP TABLE table_name;
 ```
 \'Алекс\''
 ```
+
+## Cтроковые типы со значениями которые выбираются из фиксированного списка значений
+
+**ENUM**
+
+```
+state ENUM('draft', 'correction', 'public')
+```
+
+**SET**
+
+```
+additional SET('conditioner','bar','fridge','wifi')
+```
+
+**Когда можно выбрать 1 вариант - используем ENUM**
+
+**Когда можно выбрать несколько вариантов - используем SET**
 
 # Примеры заданий
 

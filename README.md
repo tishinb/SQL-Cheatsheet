@@ -2,17 +2,17 @@
 
 ## Выделение
 
-```
+``` sql
 SELECT * FROM products WHERE price < 3000;
 ```
 
-```
+``` sql
 SELECT * FROM orders WHERE status in ('cancelled', 'new');
 ```
 
 ## Операторы OR и AND
 
-```
+``` sql
 SELECT * FROM orders WHERE sum > 3000 OR products_count >=3:
 ```
 
@@ -20,43 +20,43 @@ SELECT * FROM orders WHERE sum > 3000 OR products_count >=3:
 
 **У AND приоритет выполнения выше**
 
-```
+``` sql
 SELECT * FROM orders WHERE sum BETWEEN 3000 AND 10000 OR status = 'cancelled';
 ```
 
-```
+``` sql
 SELECT * FROM orders WHERE products_count=2 OR products_count=5 AND status = 'cancelled';
 ```
 
-```
+``` sql
 SELECT * FROM orders WHERE (products_count=2 OR products_count=5) AND status = 'cancelled';
 ```
 
 **Скобки используются для изменения приоритета операторов**
 
-```
+``` sql
 SELECT * FROM orders WHERE status = 'cancelled' AND (sum < 3000 or sum > 10000);
 ```
 
-```
+``` sql
 SELECT name, price FROM products ORDER BY price DESC;
 ```
 
-```
+``` sql
 SELECT * FROM products WHERE price >=5000 ORDER BY price DESC;
 ```
 
 ## Сортировка
 
-```
+``` sql
 SELECT name, count, price FROM products WHERE price <= 3000 ORDER BY name;
 ```
 
-```
+``` sql
 SELECT name, count, price FROM products WHERE price <= 3000 ORDER BY name ASC;
 ```
 
-```
+``` sql
 SELECT name, count, price FROM products WHERE price <= 3000 ORDER BY name DESC;
 ```
 
@@ -64,7 +64,7 @@ SELECT name, count, price FROM products WHERE price <= 3000 ORDER BY name DESC;
 
 **DESC - сортировка по убыванию**
 
-```
+``` sql
 SELECT name, price FROM products WHERE count>0
 ORDER BY name LIMIT 6 OFFSET 12;
 ```
@@ -77,11 +77,11 @@ ORDER BY name LIMIT 6 OFFSET 12;
 
 **Добавление с помощью VALUES:**
 
-```
+``` sql
 INSERT INTO orders (id, products, sum) VALUES (6, 3, 3000)
 ```
 
-```
+``` sql
 INSERT INTO products (id, name, count, price) VALUE (8, 'iMac 21', 0, 100100)
 ```
 
@@ -89,23 +89,23 @@ INSERT INTO products (id, name, count, price) VALUE (8, 'iMac 21', 0, 100100)
 
 **Добавление с помощью SET:**
 
-```
+``` sql
 INSERT INTO table (field1, field2) VALUES (value1, value2);
 ```
 
-```
+``` sql
 INSERT INTO table SET field1=value1, field2=value2;
 ```
 
 **Разница между VALUES и SET**
 
-```
+``` sql
 INSERT INTO users SET id=10, first_name='Никита', last_name='Петров'
 ```
 
 **Пакетный режим:**
 
-```
+``` sql
 INSERT INTO table (field1, field2)  
 VALUES  
     (value1_1, value1_2), 
@@ -115,13 +115,13 @@ VALUES
 
 ## Обновление/Замена
 
-```
+``` sql
 UPDATE users SET salary=salary*1.1 WHERE salary<20000
 ```
 
 **Умножение на 1.1, значит увеличение на 10%**
 
-```
+``` sql
 UPDATE products SET name='iMac' WHERE name = 'IMAC'
 ```
 
@@ -131,15 +131,15 @@ UPDATE products SET name='iMac' WHERE name = 'IMAC'
 
 **NULL нельзя сравнивать ни с чем!**
 
-```
+``` sql
 UPDATE orders SET status='new' WHERE status IS NULL
 ```
 
-```
+``` sql
 UPDATE orders SET amount=sum*products_count WHERE amount=0 OR amount IS NULL
 ```
 
-```
+``` sql
 UPDATE products SET price=price*1.05 ORDER BY price desc limit 5
 ```
 
@@ -147,23 +147,23 @@ UPDATE products SET price=price*1.05 ORDER BY price desc limit 5
 
 ## Удаление
 
-```
+``` sql
 DELETE FROM products WHERE count<1;
 ```
 
 **Удаление всех строк в таблице:**
 
-```
+``` sql
 DELETE FROM users;
 ```
 
-```
+``` sql
 TRUNCATE table users;
 ```
 
 ## Создание таблицы
 
-```
+``` sql
 CREATE TABLE table_name (
     column1 datatype,
     column2 datatype,
@@ -174,7 +174,7 @@ CREATE TABLE table_name (
 
 **Например:**
 
-```
+``` sql
 CREATE TABLE orders (
     id INT UNSIGNED NOT NULL PRIMARY KEY,
     user_id INTEGER NULL,
@@ -186,7 +186,7 @@ CREATE TABLE orders (
 
 ## Удаление таблицы
 
-```
+``` sql
 DROP TABLE table_name;
 ```
 
@@ -252,7 +252,7 @@ DROP TABLE table_name;
 
     Например, в определении следующего столбца:
 
-    ```
+    ``` sql
     salary DECIMAL(5,2)
     ```
 
@@ -349,11 +349,11 @@ DROP TABLE table_name;
 
 ##  Кавычки и перенос строк
 
-```
+``` sql
 '\'Давыдов\' \n
 ```
 
-```
+``` sql
 \'Алекс\''
 ```
 
@@ -361,13 +361,13 @@ DROP TABLE table_name;
 
 **ENUM**
 
-```
+``` sql
 state ENUM('draft', 'correction', 'public')
 ```
 
 **SET**
 
-```
+``` sql
 additional SET('conditioner','bar','fridge','wifi')
 ```
 
@@ -393,7 +393,7 @@ additional SET('conditioner','bar','fridge','wifi')
 
 **Ответ:**
 
-```
+``` sql
 select * from orders where status = 'cancelled' and (sum < 3000 or sum > 10000);
 ```
 
@@ -403,7 +403,7 @@ select * from orders where status = 'cancelled' and (sum < 3000 or sum > 10000);
 
 **Ответ:**
 
-```
+``` sql
 select * from products;
 ```
 
@@ -422,7 +422,7 @@ select * from products;
 
 **Ответ:**
 
-```
+``` sql
 select name, price from products order by price;
 ```
 
@@ -432,7 +432,7 @@ select name, price from products order by price;
 
 **Ответ:**
 
-```
+``` sql
 select * from products where price>=5000 order by price DESC;
 ```
 
@@ -442,7 +442,7 @@ select * from products where price>=5000 order by price DESC;
 
 **Ответ:**
 
-```
+``` sql
 select name, count, price from products where price<3000 order by name;
 ```
 
@@ -453,7 +453,7 @@ select name, count, price from products where price<3000 order by name;
 
 **Ответ:**
 
-```
+``` sql
 select last_name, first_name from users order by last_name, first_name;
 ```
 
@@ -471,7 +471,7 @@ select last_name, first_name from users order by last_name, first_name;
 
 **Ответ:**
 
-```
+``` sql
 select * from users where salary<30000 and salary>0 order by birthday;
 ```
 
@@ -483,7 +483,7 @@ select * from users where salary<30000 and salary>0 order by birthday;
 
 **Ответ:**
 
-```
+``` sql
 select * from orders where status in('new', 'in_progress', 'delivery') 
 order by sum desc limit 5;
 ```
@@ -494,7 +494,7 @@ order by sum desc limit 5;
 
 **Ответ:**
 
-```
+``` sql
 select name, price from products where count>0
 order by price limit 3;
 ```
@@ -526,7 +526,7 @@ order by date DESC limit 3;
 
 **Ответ:**
 
-```
+``` sql
 select name, price from products where count>0
 order by name limit 6 offset 12;
 ```

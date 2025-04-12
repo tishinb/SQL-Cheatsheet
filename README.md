@@ -532,3 +532,23 @@ order by name limit 6 offset 12;
 ```
 
 [11.02.2025]
+
+[12.04.2025]
+
+пример использования default при объявлении переменной:
+
+``` sql
+amount mediumint(8) UNSIGNED not null default 0
+```
+
+Пример default в enum:
+
+``` sql
+state enum ('new','cancelled','in_progress','delivered','completed') not null default 'new');
+```
+
+пример вызова под VALUES в insert into table:
+
+``` sql
+(1,56,5400,'2018-02-01 17:46:59', default),
+```

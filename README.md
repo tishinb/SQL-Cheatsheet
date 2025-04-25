@@ -375,6 +375,63 @@ additional SET('conditioner','bar','fridge','wifi')
 
 **Когда можно выбрать несколько вариантов - используем SET**
 
+## Уникальные строки
+
+Удаление повторяющихся строк запроса и оставлять только уникальные:
+
+``` sql
+SELECT DISTINCT class FROM Student_in_class;
+```
+
+``` sql
+SELECT DISTINCT Country FROM Customers;
+```
+
+Если в запрос добавить ещё одно поле, то эту выборку попадут строки с уникальным сочетанием курса и слушателя:
+
+``` sql
+SELECT DISTINCT
+    course_id,
+    user_id
+FROM course_members ORDER BY course_id;
+```
+
+Есть модификация этого оператора — DISTINCT ON. Такой вариант оператора позволяет указать:
+
+- Поле, которое должно быть уникальным.
+
+- Поля, которые нужно вывести.
+
+Так выглядит запрос с DISTINCT ON:
+
+``` sql
+SELECT DISTINCT ON (course_id)
+    course_id,
+    created_at
+FROM course_members
+ORDER BY course_id, created_at;
+```
+
+Сортировка с оператором DISTINCT ON
+
+При работе с DISTINCT ON важно правильно использовать сортировку. Первыми полями в ORDER BY должны быть те, которые идут после DISTINCT ON.
+
+Для примера напишем еще один запрос — к каждому уникальному курсу выведем дату, в которую записался последний студент.
+
+Для этого нужно после ORDER BY сначала указать поле course_id, как того требует синтаксис. Затем нужно добавить поле created_at с сортировкой по убыванию:
+
+``` sql
+SELECT DISTINCT ON (course_id)
+    course_id,
+    created_at
+FROM course_members
+ORDER BY course_id, created_at DESC;
+```
+
+Этот запрос выведет все уникальные курсы и дату, когда на этот курс в последний раз записывались.
+
+## Исключение дубликатов
+
 # Примеры заданий
 
 [06.02.2025]

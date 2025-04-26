@@ -603,6 +603,30 @@ WHERE Russian.genreId IS NULL OR Rap.genreId IS NULL
 
 Теперь вы увидите в результатах поиска только непарные строки. 
 
+## primary key и primary key auto_increment
+
+Первичный ключ (PRIMARY KEY) - это одному или нескольким столбцам таблицы, которые используются для уникальной идентификации каждой строки 
+
+``` sql
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID)
+); 
+```
+
+Автогенерацию первичного ключа часто называют автоинкрементом (autoincrement). Что переводится как автоматическое увеличение и напоминает операцию инкремента из программирования 
+
+``` sql
+CREATE TABLE example_table (
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   name VARCHAR(50),
+   age INT
+);
+```
+
 # Примеры заданий
 
 [06.02.2025]

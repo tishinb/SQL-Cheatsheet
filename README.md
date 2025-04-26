@@ -613,7 +613,9 @@ WHERE Russian.genreId IS NULL OR Rap.genreId IS NULL
 
 **Ответ:**
 
-🚧
+``` sql
+select * from orders where products_count=2 or products_count=5 and status='cancelled';
+```
 
 **Задание:**
 
@@ -641,7 +643,9 @@ select * from products;
 
 **Ответ:**
 
-🚧
+``` sql
+select name, price from products order by price DESC;
+```
 
 **Задание:**
 
@@ -691,7 +695,11 @@ select last_name, first_name from users order by last_name, first_name;
 
 **Ответ:**
 
-🚧
+``` sql
+select * from users
+where salary>=40000
+order by salary DESK, first_name;
+```
 
 **Задание:**
 
@@ -734,7 +742,7 @@ order by price limit 3;
 
 **Ответ:**
 
-```
+``` sql
 select * from orders where sum>=3000 
 order by date DESC limit 3;
 ```
@@ -745,7 +753,9 @@ order by date DESC limit 3;
 
 **Ответ:**
 
-🚧
+``` sql
+select * from products order by price limit 5
+```
 
 **Задание:**
 
@@ -887,4 +897,50 @@ state enum ('new','cancelled','in_progress','delivered','completed') not null de
 
 ``` sql
 (1,56,5400,'2018-02-01 17:46:59', default),
+```
+
+[22.04.2025]
+
+**Задание:**
+
+Создайте таблицу users с со следующими полями:
+
+id — идентификатор, целое положительное, первичный ключ без автоинкремента, NULL запрещен.
+first_name — имя пользователя, строка до 50 символов.
+last_name — фамилия пользователя, строка до 50 символов.
+birthday — дата рождения. Пользователь может не указать день рождения и тогда в поле нужно хранить NULL.
+Добавьте 3 записи так, чтобы получалась таблица ниже:
+
+**Ответ:**
+
+``` sql
+CREATE TABLE users (
+id INT(10)UNSIGNED NOT NULL PRIMARY KEY,
+first_name VARCHAR (50) NULL,
+last_name VARCHAR (50) NULL,
+birthday DATE NULL );
+INSERT INTO users (id, first_name, last_name, birthday)
+VALUES (1,'Дмитрий','Иванов',NULL),
+(2,'Анатолий','Белый',NULL),
+(3,'Денис','Давыдов','1995-09-08');
+```
+
+**Задание:**
+
+Создайте таблицу orders с автоинкрементальным первичным ключом id, полем state для хранения статуса заказа и полем amount для хранения суммы заказа. Статус заказа умещается в строку длиной 8 символов, а сумма заказа является денежным типом до 1 млн. с двумя знаками после десятичной точки.
+
+Добавьте 3 записи так, чтобы получалась таблица ниже:
+
+**Ответ:**
+
+``` sql
+create table orders (
+id int unsigned not null primary key auto_increment,
+state varchar (8),
+amount decimal (8,2)
+);
+insert into orders (state, amount)
+values ('new', 1000.50),
+('new', 3400.10),
+('delivery', 7300.00)
 ```
